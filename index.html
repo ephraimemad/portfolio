@@ -123,41 +123,51 @@
 </head>
 <body>
 
-  <header>
-    <img src="profile.jpg" alt="Ephraim Profile Photo" class="profile-photo" />
-    <h1>Ephraim</h1>
-    <p>AI Developer • Full-Stack Engineer • Problem Solver</p>
-  </header>
+<!-- Profile Photo in Header -->
+<header>
+  <img src="profile.jpg" alt="Ephraim Profile" class="profile-photo" />
+  <h1>Ephraim</h1>
+  <p>AI Developer • Full-Stack Engineer • Machine Learning Enthusiast</p>
+</header>
 
-  <div class="container">
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a software developer with a passion for building smart and scalable products using AI, Flutter, and full-stack tools. I enjoy creating intuitive user interfaces and automating workflows to make life easier for users and developers alike.
-      </p>
-    </section>
+<style>
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  margin-bottom: 20px;
+  transform: translateX(-30px);
+}
+</style>
 
-    <section class="projects">
-      <h2>Projects</h2>
+<!-- Replace existing projects section -->
+<section class="projects">
+  <h2>Beginner AI/ML Projects</h2>
 
-      <div class="project">
-        <h3>VoltIDE</h3>
-        <p>AI-powered IDE that accelerates coding with GPT-based suggestions, live previews, and multi-platform deployment.</p>
-        <a href="#">View on GitHub</a>
-      </div>
+  <div class="project">
+    <h3>🧮 AI Math Quiz Bot</h3>
+    <p>A simple Python app that asks you math questions and checks your answers. Great way to mix logic and interactivity.</p>
+    <p><strong>Tools:</strong> Python, Tkinter or CLI</p>
+    <p><em>🎥 YouTube idea:</em> Build an interactive math bot in 10 minutes!</p>
+  </div>
 
-      <div class="project">
-        <h3>NFC Portfolio App</h3>
-        <p>React Native app that links your NFC card to a personal portfolio page like Beacons — includes Firestore backend and hosting.</p>
-        <a href="#">Live Demo</a>
-      </div>
+  <div class="project">
+    <h3>😄 Sentiment Analyzer</h3>
+    <p>This app reads your input and tells if your message is positive, negative, or neutral using NLP tools.</p>
+    <p><strong>Tools:</strong> Python, TextBlob/VADER, Streamlit</p>
+    <p><em>🎥 YouTube idea:</em> Teach Python to understand feelings!</p>
+  </div>
 
-      <div class="project">
-        <h3>Education Manager</h3>
-        <p>Flutter app for teachers, students, and parents to manage assignments, schedules, and attendance.</p>
-        <a href="#">Case Study</a>
-      </div>
-    </section>
+  <div class="project">
+    <h3>🖼️ Image to Sketch Converter</h3>
+    <p>Convert any image into a pencil sketch using a few lines of OpenCV code. Fun intro to computer vision.</p>
+    <p><strong>Tools:</strong> Python, OpenCV, Gradio or Streamlit</p>
+    <p><em>🎥 YouTube idea:</em> Turn selfies into art with AI!</p>
+  </div>
+</section>
+
 
     <section class="youtube">
       <h2>Latest Video</h2>
