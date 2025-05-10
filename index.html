@@ -7,11 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #0ff;
-      --bg-dark: #0a0a0a;
-      --bg-light: #1a1a1a;
+      --primary-color: #00f9ff;
+      --secondary-color: #ff00e6;
+      --bg-dark: #050505;
+      --bg-light: #141414;
       --text-color: #eee;
-      --card-bg: #111;
+      --card-bg: #0d0d0d;
+      --glow-color: rgba(0, 249, 255, 0.7);
     }
 
     * {
@@ -24,14 +26,16 @@
     body {
       background-color: var(--bg-dark);
       color: var(--text-color);
+      overflow-x: hidden;
     }
 
     .hero {
       display: flex;
       height: 100vh;
-      background: linear-gradient(135deg, #000 70%, #fff 30%);
+      background: linear-gradient(135deg, var(--bg-dark) 60%, var(--secondary-color) 40%);
       align-items: center;
       padding: 40px;
+      animation: gradient-shift 10s infinite;
     }
 
     .hero-img {
@@ -47,7 +51,8 @@
       border-radius: 50%;
       border: 8px solid var(--primary-color);
       object-fit: cover;
-      box-shadow: 0 0 20px var(--primary-color);
+      box-shadow: 0 0 30px var(--glow-color);
+      animation: pulse 2s infinite;
     }
 
     .hero-text {
@@ -56,20 +61,21 @@
     }
 
     .hero-text h1 {
-      font-size: 3.5rem;
+      font-size: 4rem;
       font-family: 'Orbitron', sans-serif;
       color: var(--primary-color);
+      text-shadow: 0 0 10px var(--glow-color);
     }
 
     .hero-text p {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       margin-top: 10px;
     }
 
     .video-container {
       display: flex;
       justify-content: center;
-      padding: 40px 20px 0;
+      padding: 60px 20px 0;
     }
 
     iframe {
@@ -78,7 +84,7 @@
       height: 450px;
       border: none;
       border-radius: 12px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      box-shadow: 0 0 30px var(--glow-color);
     }
 
     .projects {
@@ -91,25 +97,27 @@
       text-align: center;
       font-family: 'Orbitron', sans-serif;
       margin-bottom: 40px;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      text-shadow: 0 0 10px var(--glow-color);
     }
 
     .project {
       background-color: var(--card-bg);
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+      box-shadow: 0 0 15px var(--glow-color);
       margin-bottom: 25px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0,255,255,0.5);
+      box-shadow: 0 0 30px var(--glow-color);
     }
 
     .project h3 {
-      color: var(--primary-color);
+      color: var(--secondary-color);
       margin-bottom: 8px;
     }
 
@@ -124,6 +132,69 @@
       font-size: 0.9rem;
       color: #666;
     }
+
+    .email-section {
+      background: linear-gradient(135deg, var(--bg-light), var(--bg-dark));
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .email-section h2 {
+      color: var(--primary-color);
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .email-section form {
+      display: inline-block;
+    }
+
+    .email-section input {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      outline: none;
+      margin-right: 10px;
+      background-color: var(--bg-dark);
+      color: var(--text-color);
+    }
+
+    .email-section button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--primary-color);
+      color: var(--bg-dark);
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .email-section button:hover {
+      background-color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 30px var(--glow-color);
+      }
+      50% {
+        box-shadow: 0 0 50px var(--glow-color);
+      }
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% {
+        background: linear-gradient(135deg, var(--bg-dark) 60%, var(--secondary-color) 40%);
+      }
+      50% {
+        background: linear-gradient(135deg, var(--secondary-color) 60%, var(--bg-dark) 40%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -134,7 +205,7 @@
     </div>
     <div class="hero-text">
       <h1>Ephraim Emad</h1>
-      <p>AI Developer | ML Enthusiast | Data Analyst</p>
+      <p>AI Developer | Generative AI | Deep Learning Enthusiast</p>
     </div>
   </div>
 
@@ -143,28 +214,33 @@
   </div>
 
   <section class="projects">
-    <h2>Featured AI & ML Projects</h2>
+    <h2>Futuristic AI & ML Projects</h2>
 
     <div class="project">
       <h3>🧠 AI Math Tutor</h3>
       <p>An interactive Python chatbot that helps users solve math problems and explains the steps.</p>
       <p><strong>Tools:</strong> Python, NLTK, Tkinter</p>
-      <p><em>Video idea:</em> "Build Your First AI Math Tutor with Python!"</p>
     </div>
 
     <div class="project">
-      <h3>🎯 Emotion Detector</h3>
-      <p>Analyzes text or speech and identifies emotions like joy, anger, or sadness.</p>
-      <p><strong>Tools:</strong> Python, TextBlob, Streamlit</p>
-      <p><em>Video idea:</em> "Can Your Code Feel? AI Emotion Detector Tutorial"</p>
+      <h3>🎨 Generative Art Studio</h3>
+      <p>Create stunning AI-generated art using style transfer and GANs.</p>
+      <p><strong>Tools:</strong> Python, TensorFlow, OpenCV</p>
     </div>
 
     <div class="project">
-      <h3>🎨 Image Sketch Converter</h3>
-      <p>Turn any photo into a pencil sketch using image processing techniques.</p>
-      <p><strong>Tools:</strong> Python, OpenCV</p>
-      <p><em>Video idea:</em> "Turn Photos into Art with Python & AI"</p>
+      <h3>🤖 AI-Powered Code Generator</h3>
+      <p>Generate code snippets from natural language using GPT models.</p>
+      <p><strong>Tools:</strong> Python, OpenAI API</p>
     </div>
+  </section>
+
+  <section class="email-section">
+    <h2>Stay Updated! Join My Mailing List</h2>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
   </section>
 
   <footer>
@@ -172,8 +248,8 @@
   </footer>
 
   <script>
-    // Smooth scroll or future animations can go here
-    console.log("Welcome to Ephraim's AI World!");
+    // Add any interactive JavaScript or animations here
+    console.log("Welcome to Ephraim's AI Universe!");
   </script>
 </body>
 </html>
