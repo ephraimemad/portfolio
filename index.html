@@ -10,10 +10,20 @@
       --primary-color: #00f9ff;
       --secondary-color: #ff00e6;
       --bg-dark: #050505;
-      --bg-light: #141414;
-      --text-color: #eee;
-      --card-bg: #0d0d0d;
+      --bg-light: #f9f9f9;
+      --text-dark: #eee;
+      --text-light: #333;
+      --card-bg-dark: #0d0d0d;
+      --card-bg-light: #ffffff;
       --glow-color: rgba(0, 249, 255, 0.7);
+    }
+
+    [data-theme="light"] {
+      --bg-dark: var(--bg-light);
+      --text-dark: var(--text-light);
+      --card-bg-dark: var(--card-bg-light);
+      --primary-color: #0077ff;
+      --secondary-color: #ff0077;
     }
 
     * {
@@ -25,8 +35,91 @@
 
     body {
       background-color: var(--bg-dark);
-      color: var(--text-color);
+      color: var(--text-dark);
       overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: var(--card-bg-dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    header .actions {
+      display: flex;
+      align-items: center;
+    }
+
+    header .actions button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--primary-color);
+      color: var(--bg-dark);
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header .actions button:hover {
+      background-color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    header .theme-toggle {
+      display: flex;
+      align-items: center;
+    }
+
+    header .theme-toggle label {
+      margin-right: 10px;
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+
+    header .theme-toggle input {
+      appearance: none;
+      width: 40px;
+      height: 20px;
+      background-color: var(--text-dark);
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.3s ease;
+    }
+
+    header .theme-toggle input:checked {
+      background-color: var(--primary-color);
+    }
+
+    header .theme-toggle input::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background-color: var(--bg-dark);
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: transform 0.3s ease;
+    }
+
+    header .theme-toggle input:checked::before {
+      transform: translateX(20px);
     }
 
     .hero {
@@ -35,7 +128,6 @@
       background: linear-gradient(135deg, var(--bg-dark) 60%, var(--secondary-color) 40%);
       align-items: center;
       padding: 40px;
-      animation: gradient-shift 10s infinite;
     }
 
     .hero-img {
@@ -52,7 +144,6 @@
       border: 8px solid var(--primary-color);
       object-fit: cover;
       box-shadow: 0 0 30px var(--glow-color);
-      animation: pulse 2s infinite;
     }
 
     .hero-text {
@@ -72,21 +163,6 @@
       margin-top: 10px;
     }
 
-    .video-container {
-      display: flex;
-      justify-content: center;
-      padding: 60px 20px 0;
-    }
-
-    iframe {
-      width: 90%;
-      max-width: 800px;
-      height: 450px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 30px var(--glow-color);
-    }
-
     .projects {
       max-width: 960px;
       margin: 60px auto;
@@ -103,7 +179,7 @@
     }
 
     .project {
-      background-color: var(--card-bg);
+      background-color: var(--card-bg-dark);
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 0 15px var(--glow-color);
@@ -132,72 +208,20 @@
       font-size: 0.9rem;
       color: #666;
     }
-
-    .email-section {
-      background: linear-gradient(135deg, var(--bg-light), var(--bg-dark));
-      padding: 40px 20px;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .email-section h2 {
-      color: var(--primary-color);
-      font-family: 'Orbitron', sans-serif;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px var(--glow-color);
-    }
-
-    .email-section form {
-      display: inline-block;
-    }
-
-    .email-section input {
-      padding: 10px 15px;
-      font-size: 1rem;
-      border: 2px solid var(--primary-color);
-      border-radius: 8px;
-      outline: none;
-      margin-right: 10px;
-      background-color: var(--bg-dark);
-      color: var(--text-color);
-    }
-
-    .email-section button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      background-color: var(--primary-color);
-      color: var(--bg-dark);
-      cursor: pointer;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .email-section button:hover {
-      background-color: var(--secondary-color);
-      box-shadow: 0 0 10px var(--secondary-color);
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 30px var(--glow-color);
-      }
-      50% {
-        box-shadow: 0 0 50px var(--glow-color);
-      }
-    }
-
-    @keyframes gradient-shift {
-      0%, 100% {
-        background: linear-gradient(135deg, var(--bg-dark) 60%, var(--secondary-color) 40%);
-      }
-      50% {
-        background: linear-gradient(135deg, var(--secondary-color) 60%, var(--bg-dark) 40%);
-      }
-    }
   </style>
 </head>
-<body>
+<body data-theme="dark">
+
+  <header>
+    <div class="logo">Ephraim's Portfolio</div>
+    <div class="actions">
+      <div class="theme-toggle">
+        <label for="theme-switch">Theme:</label>
+        <input type="checkbox" id="theme-switch">
+      </div>
+      <button onclick="location.href='#contact'">Contact</button>
+    </div>
+  </header>
 
   <div class="hero">
     <div class="hero-img">
@@ -209,10 +233,6 @@
     </div>
   </div>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
-  </div>
-
   <section class="projects">
     <h2>Futuristic AI & ML Projects</h2>
 
@@ -221,26 +241,6 @@
       <p>An interactive Python chatbot that helps users solve math problems and explains the steps.</p>
       <p><strong>Tools:</strong> Python, NLTK, Tkinter</p>
     </div>
-
-    <div class="project">
-      <h3>🎨 Generative Art Studio</h3>
-      <p>Create stunning AI-generated art using style transfer and GANs.</p>
-      <p><strong>Tools:</strong> Python, TensorFlow, OpenCV</p>
-    </div>
-
-    <div class="project">
-      <h3>🤖 AI-Powered Code Generator</h3>
-      <p>Generate code snippets from natural language using GPT models.</p>
-      <p><strong>Tools:</strong> Python, OpenAI API</p>
-    </div>
-  </section>
-
-  <section class="email-section">
-    <h2>Stay Updated! Join My Mailing List</h2>
-    <form>
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
   </section>
 
   <footer>
@@ -248,8 +248,12 @@
   </footer>
 
   <script>
-    // Add any interactive JavaScript or animations here
-    console.log("Welcome to Ephraim's AI Universe!");
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
+
+    themeSwitch.addEventListener('change', () => {
+      body.dataset.theme = themeSwitch.checked ? 'light' : 'dark';
+    });
   </script>
 </body>
 </html>
